@@ -24,7 +24,7 @@
     .cta {
       background: #f9c94c;
       color: #111;
-      padding: 15px 30px;
+      padding: 10px 20px;
       font-size: 1em;
       font-weight: bold;
       border: none;
@@ -37,6 +37,43 @@
       width: 200px;
       margin-bottom: 20px;
     }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      background-color: #222;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 400px;
+      text-align: left;
+      border-radius: 8px;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    input[type="text"],
+    input[type="email"] {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+    }
   </style>
 </head>
 <body>
@@ -44,11 +81,45 @@
   <h1>SasquatchAI</h1>
   <p><strong>The Untamed AI Trader Powered by Swarm Intelligence.</strong></p>
   <p>
-    SasquatchAI is a self-learning stock trading AI - trained in chaos, driven by data, and evolving with every decision.  
+    SasquatchAI is a self-learning stock trading AI — trained in chaos, driven by data, and evolving with every decision.
     Join the swarm. Study tickers. Trade smarter.
   </p>
-  <a href="#" class="cta">Download Beta</a>
-  <br />
-  <p style="margin-top: 50px; font-size: 0.8em;">&copy; 2025 SasquatchAI | <a href="https://swarmtrading.org" style="color:#f9c94c;">SwarmTrading.org</a></p>
+
+  <button class="cta" onclick="document.getElementById('emailModal').style.display='block'">Join Waiting List</button>
+
+  <!-- Modal -->
+  <div id="emailModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('emailModal').style.display='none'">&times;</span>
+      <h2>👣 Join the SasquatchAI Early Interest List</h2>
+      <p>We’re building something new: SasquatchAI is a self-learning AI that runs independently on your device, studies your trading interests, and shares knowledge anonymously with a swarm network — helping every participant trade smarter.</p>
+      <p>This isn’t about hype — we’re testing whether people actually want this. We respect your privacy:</p>
+      <ul>
+        <li>✅ No spam</li>
+        <li>✅ No selling your info</li>
+        <li>✅ One email when early access is ready</li>
+      </ul>
+      <form action="https://formspree.io/f/mldnqalk" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required /><br />
+        <input type="email" name="email" placeholder="Your Email" required /><br />
+        <button type="submit" class="cta">Join Now</button>
+      </form>
+    </div>
+  </div>
+
+  <p style="margin-top: 30px;">📧 Have questions? Email us at: <a href="mailto:team@sasquatchai.org" style="color:#f9c94c;">team@sasquatchai.org</a></p>
+
+  <p style="margin-top: 30px; font-size: 0.8em;">&copy; 2025 SasquatchAI | 
+    <a href="https://swarmtrading.org" style="color:#f9c94c;">SwarmTrading.org</a>
+  </p>
+
+  <script>
+    window.onclick = function(event) {
+      const modal = document.getElementById('emailModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
